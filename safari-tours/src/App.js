@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import Loading from './components/Loading'
-import Tours from './components/Tours'
+import Loading from './Components/Loading'
+import Tours from './Components/Tours'
+import TourList from './Components/TourList'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './Components/Navbar'
 
 const url = 'https://course-api.com/react-tours-project'
 
 function App() {
   const [loading, setLoading] = useState(true)
   const [tours, setTours] = useState([])
+  const [booked, setBooked] = useState([])
 
   const removeTour = (id) => {
     const newTours = tours.filter((tour) => tour.id !== id)
@@ -47,9 +51,26 @@ function App() {
       </main>
     )
   }
+
+  function bookTrip(tour, isInTour) {
+    if (booked.includes(tour) && isInTour) {
+      setBooked(booked.filter(({id}) => id !== tour.id))
+    } else if (booked.includes(tour) === false) {
+      setBooked([...booked, tour])
+    }
+  }
+
+  console.log(booked);
+
   return (
     <main>
-      <Tours tours={tours} removeTour={removeTour} />
+      <Navbar />
+      <Routes >
+        <Route path='/' element={<Tours tours={tours} removeTour={removeTour} bookTrip={bookTrip} />} />
+      {/* <Tours tours={tours} removeTour={removeTour} bookTrip={bookTrip} /> */}
+      <Route path='/booked' element={<TourList booked={booked} />} />
+      
+      </Routes>
     </main>
   )
 }
