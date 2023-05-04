@@ -1,20 +1,29 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../logo.png"
-const Navbar = () =>{
-  return(
-      <div className="Navbar">
-        <div>
-          <img id="logo" src={logo} alt="logo"/>
-        </div>
-        <div className="list">
-          <li><Link to="/">Home</Link></li>
-         <li><Link to ="/booked">Tours</Link></li>
-         <li><Link to="/">price</Link></li>
-        
-        </div>
+import SignUpForm from "./SignUpForm";
+
+const Navbar = () => {
+  return (
+    <div className="Navbar">
+      <div>
+        <img id="logo" src={logo} alt="logo" />
       </div>
-  )
-}
+      <div className="list">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/booked">Tours</Link>
+        </li>
+        <li>
+          <Link to="/">Price</Link>
+        </li>
+        <li><Link to="/SignUpForm">Sign Up</Link></li>
+      </div>
+
+    </div>
+  );
+};
 
 export default Navbar;
