@@ -12,6 +12,9 @@ View booking details
 # Technologies Used
 React
 Node.js
+Javascript
+HTML
+CSS
 
 # Installation
 Clone the repository git clone https://github.com/asaRicky/Safari-tours.git
