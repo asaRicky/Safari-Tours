@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
   return (
     <footer>
-      <p>&copy; 2023 Tours and Travels app</p>
+      <p> 2023  Safari-Tours </p>
     </footer>
   );
 }
